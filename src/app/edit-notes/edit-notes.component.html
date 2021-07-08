@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-6 mx-auto">
+            <div class="card my-5 mx-auto" >
+                <img src="../../../assets/images/new-ticket.jpg" alt="Avatar" class="avatar">
+                <div class="titulo text-center">
+                    <h5>Editar nota</h5>
+                  </div>
+                <form [formGroup]="formulario" class="mx-5 mt-2 mb-2">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="nombre" formControlName="titulo">
+                        <label for="nombre">Titulo</label>
+                    </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" formControlName="estado">
+                                <option hidden selected disabled>Seleccione un estado</option>
+                                <option value="1">Iniciada</option>
+                                <option value="2">En Proceso</option>
+                                <option value="3">Finalizada</option>
+                            </select>
+                            <label for="floatingSelect">Estado</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="descripcion" placeholder="Ingrese aca la descripcion" rows="3" formControlName="descripcion"></textarea>
+                        <label for="descripcion">Descripcion</label>
+                    </div>            
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary mb-2" *ngIf="!esValido()" disabled>Actualizar Nota</button>
+                        <a class="btn btn-primary mb-2" [routerLink]="['/vistaNotas']" routerLinkActive="router-link-active" [hidden]="hide" (click)="actualizarNota()" *ngIf="esValido()">Actualizar Nota</a>
+                    </div>
+                    
+                    <div role="alert" class="warnings alert alert-warning mb-2 mt-4" *ngIf="titulo.invalid && titulo.dirty">
+                        <i class="fas fa-exclamation-triangle"></i> El titulo es obligatorio
+                    </div>
+                    <div role="alert" class="warnings alert alert-warning mb-2 mt-4" *ngIf="estado.invalid && estado.touched">
+                        <i class="fas fa-exclamation-triangle"></i> El estado es obligatorio
+                    </div>
+                
+                    <div role="alert" class="warnings alert alert-warning mb-2 mt-4" *ngIf="descripcion.invalid && descripcion.dirty">
+                        <div *ngIf="descripcion.errors?.required">
+                            <i class="fas fa-exclamation-triangle"></i> La descripcion es obligatoria
+                        </div>
+                        <div *ngIf="descripcion.errors?.maxlength">
+                            <i class="fas fa-exclamation-triangle"></i> La descripcion no puede tener un largo mayor que 150 caracteres
+                        </div>
+                    </div>
+                
+                </form>
+            </div>
+      </div>
+    </div>
+</div>
+<!-- <form [formGroup]="formulario">
+
+    <h2 class="mb-4 text-center">Actualizar nota</h2>
+
+    <div class="mb-2">
+        <label class="form-label">Titulo</label>
+        <input type="text" class="form-control" formControlName="titulo">
+    </div>
+
+    <div class="estado-select mb-4 d-flex flex-column">
+        <label>Estado</label>
+        <select class="form-select" formControlName="estado">
+            <option disabled selected>Seleccione una opción</option>
+            <option value="1">Abierto</option>
+            <option value="2">En Proceso</option>
+            <option value="3">Cerrado</option>
+        </select>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label">Descripcion</label>
+        <textarea class="form-control" formControlName="descripcion" rows="3"></textarea>
+    </div>
+    
+    <div class="button d-flex justify-content-end">
+        <a class="btn btn-primary" [routerLink]="['/vistaNotas']" routerLinkActive="router-link-active" (click)="actualizarNota()" *ngIf="esValido()">Actualizar Nota</a>
+        <button type="button" class="btn btn-primary" *ngIf="!esValido()" disabled>Actualizar Nota</button>
+    </div>
+
+    <div role="alert" class="warnings alert alert-warning mb-2 mt-4" *ngIf="titulo.invalid && titulo.dirty">
+        <i class="fas fa-exclamation-triangle"></i> El titulo es obligatorio
+    </div>
+    
+    <div role="alert" class="warnings alert alert-warning mb-2 mt-4" *ngIf="descripcion.invalid && descripcion.dirty">
+        <div *ngIf="descripcion.errors?.required">
+            <i class="fas fa-exclamation-triangle"></i> La descripcion es obligatoria
+        </div>
+
+        <div *ngIf="descripcion.errors?.maxlength">
+            <i class="fas fa-exclamation-triangle"></i> La descripcion no puede tener un largo mayor que 150 caracteres
+        </div>
+    </div>
+
+</form> -->

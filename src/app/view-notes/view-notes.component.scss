@@ -1,0 +1,36 @@
+// .card{
+//     display:flex;
+//     flex-direction: row;
+
+//     .card-body{
+//         text-decoration: none;
+//         width: 80%;
+//     }
+    
+//     .boton-cerrar{
+//         font-size: 25px;
+//         display: flex;
+//         justify-content: center;
+//         align-items:center;
+//         width:20%;
+//         i{
+//             cursor:pointer;
+//         }
+//     }
+// }
+
+  
+  .card{
+      border-radius: 0.8rem;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      
+    }
+  
+  .card-header{
+      border-top-left-radius: 0.8rem;
+      border-top-right-radius: 0.8rem;
+  
+  
+  }
+  

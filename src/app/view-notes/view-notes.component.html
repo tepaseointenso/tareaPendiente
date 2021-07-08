@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-4">
+        <h1 class="display-4 text-center">Iniciadas</h1>
+        <div *ngFor="let nota of notas">
+          <div class="card text-center my-5" *ngIf="nota.estado == 1">
+            <a [routerLink]="['/actualizarNota']" style="text-decoration: none; color: black;" (click)="actualizarNota(nota)">
+              <div class="card-header bg-success text-white">{{nota.titulo}}</div>
+              <div class="card-body">
+                <p class="card-text">{{nota.descripcion}}</p>
+              </div>
+              <div class="card-footer text-muted">
+                <div class="boton-cerrar" (click)="eliminarNota(nota)">Eliminar <i class="fas fa-times"></i></div>
+              </div>
+            </a>          
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-4">
+        <h1 class="display-4 text-center">En proceso</h1>
+        <div *ngFor="let nota of notas">
+          <div class="card text-center my-5" *ngIf="nota.estado == 2">
+            <a [routerLink]="['/actualizarNota']" style="text-decoration: none; color: black;" (click)="actualizarNota(nota)">
+              <div class="card-header bg-warning text-white">{{nota.titulo}}</div>
+              <div class="card-body">
+                <p class="card-text">{{nota.descripcion}}</p>
+              </div>
+              <div class="card-footer text-muted">
+                <div class="boton-cerrar" (click)="eliminarNota(nota)">Eliminar <i class="fas fa-times"></i></div>
+              </div>  
+            </a> 
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-4">
+        <h1 class="display-4 text-center">Finalizadas</h1>
+        <div *ngFor="let nota of notas">
+          <div class="card text-center my-5" *ngIf="nota.estado == 3">
+              <div class="card-header bg-danger text-white">{{nota.titulo}}</div>
+              <div class="card-body">
+                <p class="card-text">{{nota.descripcion}}</p>
+              </div>
+              <div class="card-footer text-muted">
+                Finalizada
+              </div>       
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<footer>
+  <div class="d-flex justify-content-center">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btn btn-primary">Adicionar nueva nota</a>
+  </div>
+</footer>
+
+
+<!-- <h2 class="mb-5 text-center"><i class="far fa-clipboard"></i> Mis notas <span class="badge bg-dark text-white">{{notas.length}}</span></h2>
+
+<div class="alert alert-primary mb-5" role="alert" *ngIf="notas.length == 0">
+    Aún no has añadido notas
+</div>
+
+<div class="mb-3 justify-content-center d-flex align-items-center align-items-lg-start flex-column flex-lg-row" *ngIf="notas.length > 0">
+    
+  <div class="estado-abierto mb-4 mr-3">
+
+      <h5 class="mb-3 text-center" style="width: 18rem;">Abiertas</h5>
+
+      <div class="notas-abiertas mb-3" *ngFor="let nota of notas">
+          <div class="card bg-primary text-white" style="width: 18rem;" *ngIf="nota.estado == 1">
+            <a [routerLink]="['/actualizarNota']" routerLinkActive="router-link-active" (click)="actualizarNota(nota)" class="card-body text-white">
+              <h5 class="card-title">{{nota.titulo}}</h5>
+              <p class="card-text">{{nota.descripcion}}</p>
+            </a>
+            <div class="boton-cerrar" (click)="eliminarNota(nota)"><i class="fas fa-times"></i></div>
+          </div>
+      </div>
+
+    </div>
+    
+    <div class="estado-proceso mb-4 mr-3">
+
+      <h5 class="mb-3 text-center" style="width: 18rem;">En Proceso</h5>
+
+      <div class="notas-en-proceso mb-3" *ngFor="let nota of notas">
+
+        <div class="card bg-warning text-body" style="width: 18rem;" *ngIf="nota.estado == 2">
+            <a [routerLink]="['/actualizarNota']" routerLinkActive="router-link-active" (click)="actualizarNota(nota)" class="card-body text-body">
+              <h5 class="card-title">{{nota.titulo}}</h5>
+              <p class="card-text">{{nota.descripcion}}</p>
+            </a>
+            <div class="boton-cerrar" (click)="eliminarNota(nota)"><i class="fas fa-times"></i></div>
+        </div>
+
+      </div>
+
+    </div>
+    
+    <div class="estado-cerrado">
+
+      <h5 class="mb-3 text-center" style="width: 18rem;">Cerradas</h5>
+
+      <div class="notas-cerradas mb-3" *ngFor="let nota of notas">
+    
+        <div class="card bg-danger text-white" style="width: 18rem;" *ngIf="nota.estado == 3">
+            <div class="card-body text-white">
+              <h5 class="card-title">{{nota.titulo}}</h5>
+              <p class="card-text">{{nota.descripcion}}</p>
+            </div>
+            <div class="boton-cerrar" (click)="eliminarNota(nota)"><i class="fas fa-times"></i></div>
+        </div>
+
+      </div>
+
+    </div>
+
+</div>
+
+<footer>
+  <div class="d-flex justify-content-center">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active" class="btn btn-primary">Adicionar nueva nota</a>
+  </div>
+</footer>
+
+
+
+
+
+
+  
+ -->
