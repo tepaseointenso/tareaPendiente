@@ -28,11 +28,9 @@ export class ViewNotesComponent implements OnInit {
     for(let i = 0 ; i < this.notas.length ; i++){
       if(nota == this.notas[i]){
         this.notas.splice(i, 1);
-        //console.log(this.notas);
         this.servicio.guardarDatos(this.notas).subscribe(datos => {
           console.log(datos);
         });
-        return;
       } 
     }
   }
